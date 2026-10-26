@@ -3,114 +3,222 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex">
 <title>도쿄 긴자·신주쿠·시부야 가이드</title>
 <style>
-:root{--bg:#faf7f2;--card:#fff;--text:#222;--sub:#666;--line:#e8e2d8;--accent:#d6372b;--chip:#fbe9e7;--star:#f59e0b;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--card:#222126;--text:#eee;--sub:#aaa;--line:#34323a;--accent:#ff6b5e;--chip:#3a2422}}
-:root[data-theme="dark"]{--bg:#17161a;--card:#222126;--text:#eee;--sub:#aaa;--line:#34323a;--accent:#ff6b5e;--chip:#3a2422}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.5}
-main{max-width:640px;margin:0 auto;padding:16px 16px 40px}
-h1{font-size:1.4rem;margin:6px 0 4px}
-.lead{color:var(--sub);font-size:.9rem;margin:0 0 16px}
-.back{background:none;border:0;color:var(--accent);font-size:.95rem;padding:6px 0;cursor:pointer}
-.grid{display:grid;gap:10px}
-.grid.two{grid-template-columns:1fr 1fr}
-.tile{display:block;width:100%;text-align:left;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:16px;font:inherit;cursor:pointer}
-.tile .e{font-size:1.8rem;display:block;margin-bottom:4px}
-.tile b{font-size:1.05rem}
-.tile small{display:block;color:var(--sub);margin-top:2px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg)}
-.chip{white-space:nowrap;border:0;background:var(--chip);color:var(--accent);padding:6px 14px;border-radius:999px;font-size:.85rem;cursor:pointer}
-.chip.on{background:var(--accent);color:#fff}
-h2{font-size:1rem;margin:18px 0 8px;border-left:4px solid var(--accent);padding-left:8px}
-.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px}
-.item-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
-.item b{font-size:1rem}
-.rating{font-size:.82rem;font-weight:600;color:var(--star);white-space:nowrap}
-.rating small{color:var(--sub);font-weight:normal;margin-left:2px}
-.item p{margin:4px 0 8px;font-size:.88rem;color:var(--sub)}
-.item-actions{display:flex;gap:6px;align-items:center}
-.item a{font-size:.82rem;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:3px 10px;display:inline-block}
-footer{color:var(--sub);font-size:.78rem;margin-top:24px}
+:root {
+  --bg: #faf7f2;
+  --card: #fff;
+  --text: #222;
+  --sub: #666;
+  --line: #e8e2d8;
+  --accent: #d6372b;
+  --chip: #fbe9e7;
+  --star: #f59e0b;
+}
+
+/* 스마트폰 시스템 다크모드 설정 자동 감지 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17161a;
+    --card: #222126;
+    --text: #eee;
+    --sub: #aaa;
+    --line: #34323a;
+    --accent: #ff6b5e;
+    --chip: #3a2422;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  line-height: 1.5;
+}
+main { max-width: 640px; margin: 0 auto; padding: 16px 16px 40px; }
+h1 { font-size: 1.4rem; margin: 6px 0 4px; }
+.lead { color: var(--sub); font-size: .9rem; margin: 0 0 16px; }
+.back { background: none; border: 0; color: var(--accent); font-size: .95rem; padding: 6px 0; cursor: pointer; font-weight: bold; }
+.grid { display: grid; gap: 10px; }
+.grid.two { grid-template-columns: 1fr 1fr; }
+.tile { display: block; width: 100%; text-align: left; background: var(--card); color: var(--text); border: 1px solid var(--line); border-radius: 14px; padding: 16px; cursor: pointer; }
+.tile .e { font-size: 1.8rem; display: block; margin-bottom: 4px; }
+.tile b { font-size: 1.05rem; }
+.tile small { display: block; color: var(--sub); margin-top: 2px; }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 10px; position: sticky; top: 0; background: var(--bg); z-index: 10; }
+.chip { white-space: nowrap; border: 0; background: var(--chip); color: var(--accent); padding: 6px 14px; border-radius: 999px; font-size: .85rem; cursor: pointer; }
+.chip.on { background: var(--accent); color: #fff; }
+h2 { font-size: 1rem; margin: 18px 0 8px; border-left: 4px solid var(--accent); padding-left: 8px; }
+.item { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; }
+.item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.item b { font-size: 1rem; }
+.rating { font-size: .82rem; font-weight: 600; color: var(--star); white-space: nowrap; }
+.rating small { color: var(--sub); font-weight: normal; margin-left: 2px; }
+.item p { margin: 4px 0 8px; font-size: .88rem; color: var(--sub); }
+.item-actions { display: flex; gap: 6px; align-items: center; }
+.item a { font-size: .82rem; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 999px; padding: 3px 10px; display: inline-block; }
+footer { color: var(--sub); font-size: .78rem; margin-top: 24px; text-align: center; }
 </style>
 </head>
 <body>
 <main id="app"></main>
+
 <script>
-var A=['긴자','신주쿠','시부야','도쿄역/기타'];
-var D={
-food:{t:'식당',e:'🍜',d:'메뉴별로 골라보기',subs:{
-sushi:{t:'초밥',e:'🍣',items:[
-['스시 긴','긴자','긴자에서 합리적인 가격으로 신선한 정통 에도마에 스시를 즐길 수 있는 유명 스시야예요.','寿司ぎん','4.3','3,200+'],
-['츠키지 스시이치','긴자','신선한 제철 해산물로 만든 수준 높은 스시를 맛볼 수 있는 긴자 맛집이에요.','築地すし一 銀座店','4.2','1,100+'],
-['스시노 미도리 시부야','시부야','신선하고 푸짐한 네타로 언제나 긴 줄이 서는 인기 초밥 전문점이에요.','梅丘寿司の美登利 渋谷店','4.3','4,500+'],
-['스시 사카바 사시스 신주쿠','신주쿠','큼직하고 신선한 재료를 올린 스시와 이자카야 메뉴를 부담 없이 즐길 수 있어요.','すし酒場 さしす 新宿サブナード','4.2','1,800+'],
-['스시잔마이 신주쿠히가시구치','신주쿠','24시간 영업하여 언제든 신선한 참치와 다양한 초밥을 편하게 즐길 수 있는 곳이에요.','すしざんまい 新宿東口店','4.0','3,900+']]},
-tako:{t:'타코야키',e:'🐙',items:[
-['츠키지 긴다코 긴자본점','긴자','겉은 바삭하고 속은 촉촉한 일본 대표 타코야키 체인의 본점이에요.','築地銀だこ 銀座一丁目店','4.0','850+'],
-['츠키지 긴다코 시부야점','시부야','시부야 중심가에서 간편하게 즐기기 좋은 맛있는 타코야키집이에요.','築地銀だこ 渋谷店','4.1','1,200+']]},
-oko:{t:'오코노미야키',e:'🥞',items:[
-['긴자 텟판베이','긴자','세련된 분위기에서 철판구이와 오코노미야키를 즐길 수 있는 긴자 맛집이에요.','銀座 鉄板ベイビー','4.3','720+'],
-['테판베이 신주쿠','신주쿠','활기찬 분위기 속에서 맛있는 오코노미야키와 철판 요리를 맛볼 수 있어요.','鉄板ベイビー 新宿店','4.2','950+'],
-['오코노미야키 몬자 오타fuku 시부야','시부야','다양한 철판 요리와 몬자야키를 즐길 수 있는 시부야 인기 매장이에요.','お好み焼き もんじゃ おた福 渋谷店','4.2','610+']]},
-ramen:{t:'라멘/츠케멘',e:'🍥',items:[
-['이치란 신주쿠추오히가시구치','신주쿠','개인 칸막이 좌석에서 진한 돈코츠 라멘을 취향대로 즐길 수 있어요.','一蘭 新宿中央東口店','4.3','8,900+'],
-['이치란 시부야','시부야','시부야역 근처에 위치해 언제나 인기 만점인 돈코츠 라멘 전문점이에요.','一蘭 渋谷店','4.3','7,500+'],
-['멘야 무사시 신주쿠','신주쿠','진하고 깊은 국물과 두툼한 차슈가 매력적인 신주쿠 대표 라멘 맛집이에요.','麺屋武蔵 新宿本店','4.3','4,200+'],
-['아오바 시부야','시부야','더블 수프의 원조로 깔끔하고 깊은 맛을 자랑하는 유명 라멘집이에요.','中華そば 青葉 渋谷店','4.2','2,100+'],
-['긴자하치고','긴자','미쉐린 빕 구르망에 선정된, 정성 가득한 맑고 깊은 국물의 라멘 맛집이에요.','銀座 八五','4.3','1,500+']]},
-yaki:{t:'야키니쿠/고기',e:'🥩',items:[
-['요로니쿠 아오야마','긴자','고급스러운 분위기에서 직원이 직접 구워 주는 최고의 와규 오마카세 맛집이에요.','よろにく','4.6','1,800+'],
-['규카츠 모토무라 신주쿠미나미구치','신주쿠','부드러운 규카츠를 개인 화로에 알맞게 구워 먹는 인기 맛집이에요.','牛かつ もと村 新宿南口店','4.4','4,800+'],
-['규카츠 모토무라 시부야','시부야','겉은 바삭하고 속은 촉촉한 규카츠를 취향껏 구워 즐길 수 있어요.','牛かつ もと村 渋谷分店','4.4','5,100+'],
-['야키니쿠 토라지 긴자','긴자','깔끔하고 세련된 공간에서 품질 좋은 와규와 고기 구이를 즐길 수 있어요.','焼肉トラジ ギンザコア店','4.2','1,100+'],
-['규토쿠 신주쿠','신주쿠','합리적인 가격에 맛있는 와규와 호르몬을 즐길 수 있는 야키니쿠 전문점이에요.','牛徳 新宿店','4.3','890+']]},
-cafe:{t:'카페/디저트',e:'🍰',items:[
-['긴자 토리야마','긴자','아름다운 인테리어와 정갈한 디저트를 즐길 수 있는 긴자 감성 카페예요.','資生堂パーラー 銀座本店','4.3','3,500+'],
-['카페 드 람브르','긴자','1948년부터 이어진 오랜 전통과 깊은 내공의 핸드드립 커피 명가예요.','カフェ·ド·ランブル','4.4','1,600+'],
-['블루보틀 커피 긴자','긴자','깔끔한 인테리어와 산뜻한 스페셜티 커피를 맛볼 수 있는 카페예요.','ブルーボトルコーヒー 銀座カフェ','4.2','2,200+'],
-['살롱 바카 루이지애나 시부야','시부야','세련된 공간에서 달콤한 디저트와 음료를 즐길 수 있는 카페예요.','サロン 亜コパ','4.2','540+'],
-['역사 있는 신주쿠 카페','신주쿠','분위기 좋은 신주쿠 중심가의 여유로운 디저트 카페예요.','珈琲西武 新宿三丁目店','4.3','2,800+']]}}
+var areas = ['긴자', '신주쿠', '시부야', '도쿄역/기타'];
+var currentArea = '전체';
+
+var data = {
+  sushi: {
+    title: '초밥', emoji: '🍣',
+    items: [
+      ['스시 긴', '긴자', '긴자에서 합리적인 가격으로 신선한 정통 에도마에 스시를 즐길 수 있는 유명 스시야예요.', '寿司ぎん', '4.3', '3,200+'],
+      ['츠키지 스시이치', '긴자', '신선한 제철 해산물로 만든 수준 높은 스시를 맛볼 수 있는 긴자 맛집이에요.', '築地すし一 銀座店', '4.2', '1,100+'],
+      ['스시노 미도리 시부야', '시부야', '신선하고 푸짐한 네타로 언제나 긴 줄이 서는 인기 초밥 전문점이에요.', '梅丘寿司の美登利 渋谷店', '4.3', '4,500+'],
+      ['스시 사카바 사시스 신주쿠', '신주쿠', '큼직하고 신선한 재료를 올린 스시와 이자카야 메뉴를 부담 없이 즐길 수 있어요.', 'すし酒場 さしす 新宿サブナード', '4.2', '1,800+'],
+      ['스시잔마이 신주쿠히가시구치', '신주쿠', '24시간 영업하여 언제든 신선한 참치와 다양한 초밥을 편하게 즐길 수 있는 곳이에요.', 'すしざんまい 新宿東口店', '4.0', '3,900+']
+    ]
+  },
+  tako: {
+    title: '타코야키', emoji: '🐙',
+    items: [
+      ['츠키지 긴다코 긴자본점', '긴자', '겉은 바삭하고 속은 촉촉한 일본 대표 타코야키 체인의 본점이에요.', '築地銀だこ 銀座一丁目店', '4.0', '850+'],
+      ['츠키지 긴다코 시부야점', '시부야', '시부야 중심가에서 간편하게 즐기기 좋은 맛있는 타코야키집이에요.', '築地銀だこ 渋谷店', '4.1', '1,200+']
+    ]
+  },
+  oko: {
+    title: '오코노미야키', emoji: '🥞',
+    items: [
+      ['긴자 텟판베이', '긴자', '세련된 분위기에서 철판구이와 오코노미야키를 즐길 수 있는 긴자 맛집이에요.', '銀座 鉄板ベイビー', '4.3', '720+'],
+      ['테판베이 신주쿠', '신주쿠', '활기찬 분위기 속에서 맛있는 오코노미야키와 철판 요리를 맛볼 수 있어요.', '鉄板ベイビー 新宿店', '4.2', '950+'],
+      ['오코노미야키 몬자 오타fuku 시부야', '시부야', '다양한 철판 요리와 몬자야키를 즐길 수 있는 시부야 인기 매장이에요.', 'お好み焼き もんじゃ おた福 渋谷店', '4.2', '610+']
+    ]
+  },
+  ramen: {
+    title: '라멘/츠케멘', emoji: '🍥',
+    items: [
+      ['이치란 신주쿠추오히가시구치', '신주쿠', '개인 칸막이 좌석에서 진한 돈코츠 라멘을 취향대로 즐길 수 있어요.', '一蘭 新宿中央東口店', '4.3', '8,900+'],
+      ['이치란 시부야', '시부야', '시부야역 근처에 위치해 언제나 인기 만점인 돈코츠 라멘 전문점이에요.', '一蘭 渋谷店', '4.3', '7,500+'],
+      ['멘야 무사시 신주쿠', '신주쿠', '진하고 깊은 국물과 두툼한 차슈가 매력적인 신주쿠 대표 라멘 맛집이에요.', '麺屋武蔵 新宿本店', '4.3', '4,200+'],
+      ['아오바 시부야', '시부야', '더블 수프의 원조로 깔끔하고 깊은 맛을 자랑하는 유명 라멘집이에요.', '中華そば 青葉 渋谷店', '4.2', '2,100+'],
+      ['긴자하치고', '긴자', '미쉐린 빕 구르망에 선정된, 정성 가득한 맑고 깊은 국물의 라멘 맛집이에요.', '銀座 八五', '4.3', '1,500+']
+    ]
+  },
+  yaki: {
+    title: '야키니쿠/고기', emoji: '🥩',
+    items: [
+      ['요로니쿠 아오야마', '긴자', '고급스러운 분위기에서 직원이 직접 구워 주는 최고의 와규 오마카세 맛집이에요.', 'よろにく', '4.6', '1,800+'],
+      ['규카츠 모토무라 신주쿠미나미구치', '신주쿠', '부드러운 규카츠를 개인 화로에 알맞게 구워 먹는 인기 맛집이에요.', '牛かつ もと村 新宿南口店', '4.4', '4,800+'],
+      ['규카츠 모토무라 시부야', '시부야', '겉은 바삭하고 속은 촉촉한 규카츠를 취향껏 구워 즐길 수 있어요.', '牛かつ もと村 渋谷分店', '4.4', '5,100+'],
+      ['야키니쿠 토라지 긴자', '긴자', '깔끔하고 세련된 공간에서 품질 좋은 와규와 고기 구이를 즐길 수 있어요.', '焼肉トラジ ギンザコア店', '4.2', '1,100+'],
+      ['규토쿠 신주쿠', '신주쿠', '합리적인 가격에 맛있는 와규와 호르몬을 즐길 수 있는 야키니쿠 전문점이에요.', '牛徳 新宿店', '4.3', '890+']
+    ]
+  },
+  cafe: {
+    title: '카페/디저트', emoji: '🍰',
+    items: [
+      ['긴자 토리야마', '긴자', '아름다운 인테리어와 정갈한 디저트를 즐길 수 있는 긴자 감성 카페예요.', '資生堂パーラー 銀座本店', '4.3', '3,500+'],
+      ['카페 드 람브르', '긴자', '1948년부터 이어진 오랜 전통과 깊은 내공의 핸드드립 커피 명가예요.', 'カフェ·ド·ランブル', '4.4', '1,600+'],
+      ['블루보틀 커피 긴자', '긴자', '깔끔한 인테리어와 산뜻한 스페셜티 커피를 맛볼 수 있는 카페예요.', 'ブルーボトルコーヒー 銀座カフェ', '4.2', '2,200+'],
+      ['살롱 바카 루이지애나 시부야', '시부야', '세련된 공간에서 달콤한 디저트와 음료를 즐길 수 있는 카페예요.', 'サロン 亜コパ', '4.2', '540+'],
+      ['역사 있는 신주쿠 카페', '신주쿠', '분위기 좋은 신주쿠 중심가의 여유로운 디저트 카페예요.', '珈琲西武 新宿三丁目店', '4.3', '2,800+']
+    ]
+  }
 };
 
-var app=document.getElementById('app'),area='전체';
-function map(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q+' 東京')}
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
-function header(t,back){return (back?'<button class="back" onclick="location.hash=\''+back+'\'">← 뒤로</button>':'')+'<h1>'+t+'</h1>'}
-
-function list(items){
- var h='<div class="chips">'+['전체'].concat(A).map(function(a){return '<button class="chip'+(a==area?' on':'')+'" onclick="area=\''+a+'\';render()">'+a+'</button>'}).join('')+'</div>';
- var n=0;
- A.forEach(function(a){
-  if(area!='전체'&&area!=a)return;
-  var it=items.filter(function(i){return i[1]==a});
-  if(!it.length)return;
-  n+=it.length;
-  h+='<h2>'+a+'</h2>'+it.map(function(i){
-   var rateHtml = i[4] ? '<span class="rating">★ '+esc(i[4])+(i[5]?'<small>('+esc(i[5])+')</small>':'')+'</span>' : '';
-   return '<div class="item"><div class="item-head"><b>'+esc(i[0])+'</b>'+rateHtml+'</div><p>'+esc(i[2])+'</p><div class="item-actions"><a href="'+map(i[3])+'" target="_blank" rel="noopener">구글맵</a></div></div>'
-  }).join('');
- });
- if(!n)h+='<p class="lead">이 지역에는 등록된 곳이 없어요.</p>';
- return h;
+function getMapLink(query) {
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(query + ' 東京');
 }
 
-function render(){
- var p=(location.hash||'#/').slice(2).split('/'),h='',c=D[p[0]];
- if(!c){
-  h=header('도쿄 긴자·신주쿠·시부야 가이드')+'<p class="lead">성인 여성 여행을 위한 식당 가이드예요</p><div class="grid">'+Object.keys(D).map(function(k){return '<button class="tile big" onclick="area=\'전체\';location.hash=\'#/'+k+'\'"><span class="e">'+D[k].e+'</span><span><b>'+D[k].t+'</b><small>'+D[k].d+'</small></span></button>'}).join('')+'</div>';
- }else if(c.subs&&!p[1]){
-  h=header(c.t,'#/')+'<div class="grid two">'+Object.keys(c.subs).map(function(k){var s=c.subs[k];return '<button class="tile" onclick="area=\'전체\';location.hash=\'#/'+p[0]+'/'+k+'\'"><span class="e">'+s.e+'</span><b>'+s.t+'</b><small>'+s.items.length+'곳</small></button>'}).join('')+'</div>';
- }else if(c.subs&&c.subs[p[1]]){
-  h=header(c.subs[p[1]].t,'#/'+p[0])+list(c.subs[p[1]].items);
- }
- h+='<footer>영업시간·휴무는 방문 전 구글맵에서 확인하세요.</footer>';
- app.innerHTML=h;window.scrollTo(0,0);
+function render() {
+  var hash = location.hash.replace('#/', '');
+  var appEl = document.getElementById('app');
+  var html = '';
+
+  if (!hash) {
+    html += '<h1>도쿄 긴자·신주쿠·시부야 가이드</h1>';
+    html += '<p class="lead">성인 여성 여행을 위한 식당 가이드예요</p>';
+    html += '<div class="grid two">';
+    for (var key in data) {
+      var cat = data[key];
+      html += '<button class="tile" onclick="location.hash=\'#/' + key + '\'">';
+      html += '<span class="e">' + cat.emoji + '</span>';
+      html += '<b>' + cat.title + '</b>';
+      html += '<small>' + cat.items.length + '곳</small>';
+      html += '</button>';
+    }
+    html += '</div>';
+  } else {
+    var cat = data[hash];
+    if (cat) {
+      html += '<button class="back" onclick="location.hash=\'#\'">← 뒤로</button>';
+      html += '<h1>' + cat.emoji + ' ' + cat.title + '</h1>';
+      
+      html += '<div class="chips">';
+      html += '<button class="chip ' + (currentArea === '전체' ? 'on' : '') + '" onclick="setArea(\'전체\')">전체</button>';
+      for (var i = 0; i < areas.length; i++) {
+        var a = areas[i];
+        html += '<button class="chip ' + (currentArea === a ? 'on' : '') + '" onclick="setArea(\'' + a + '\')">' + a + '</button>';
+      }
+      html += '</div>';
+
+      var totalCount = 0;
+      for (var i = 0; i < areas.length; i++) {
+        var areaName = areas[i];
+        if (currentArea !== '전체' && currentArea !== areaName) continue;
+
+        var filteredItems = cat.items.filter(function(item) {
+          return item[1] === areaName;
+        });
+
+        if (filteredItems.length > 0) {
+          totalCount += filteredItems.length;
+          html += '<h2>' + areaName + '</h2>';
+          for (var j = 0; j < filteredItems.length; j++) {
+            var item = filteredItems[j];
+            var name = item[0];
+            var desc = item[2];
+            var mapQuery = item[3];
+            var rating = item[4];
+            var reviews = item[5];
+
+            html += '<div class="item">';
+            html += '<div class="item-head"><b>' + name + '</b>';
+            if (rating) {
+              html += '<span class="rating">★ ' + rating + '<small>(' + reviews + ')</small></span>';
+            }
+            html += '</div>';
+            html += '<p>' + desc + '</p>';
+            html += '<div class="item-actions"><a href="' + getMapLink(mapQuery) + '" target="_blank" rel="noopener">구글맵</a></div>';
+            html += '</div>';
+          }
+        }
+      }
+
+      if (totalCount === 0) {
+        html += '<p class="lead" style="margin-top:20px;">이 지역에는 등록된 맛집이 없어요.</p>';
+      }
+    } else {
+      html += '<h1>페이지를 찾을 수 없어요</h1>';
+      html += '<button class="back" onclick="location.hash=\'#\'">홈으로 가기</button>';
+    }
+  }
+
+  html += '<footer>영업시간·휴무는 방문 전 구글맵에서 확인하세요.</footer>';
+  appEl.innerHTML = html;
+  window.scrollTo(0, 0);
 }
-window.addEventListener('hashchange',function(){area='전체';render()});
+
+function setArea(area) {
+  currentArea = area;
+  render();
+}
+
+window.addEventListener('hashchange', function() {
+  currentArea = '전체';
+  render();
+});
+
 render();
 </script>
 </body>
