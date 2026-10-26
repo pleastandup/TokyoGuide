@@ -75,37 +75,40 @@ cafe:{t:'카페/디저트',e:'🍰',items:[
 ['살롱 바카 루이지애나 시부야','시부야','세련된 공간에서 달콤한 디저트와 음료를 즐길 수 있는 카페예요.','サロン 亜コパ','4.2','540+'],
 ['역사 있는 신주쿠 카페','신주쿠','분위기 좋은 신주쿠 중심가의 여유로운 디저트 카페예요.','珈琲西武 新宿三丁目店','4.3','2,800+']]}}
 };
-​var app=document.getElementById('app'),area='전체';
-function map(q){return '[https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q](https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)+' 東京')}
-function esc(s){return String(s).replace(/&/g,'&').replace(/</g,'<')}
+
+var app=document.getElementById('app'),area='전체';
+function map(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q+' 東京')}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 function header(t,back){return (back?'<button class="back" onclick="location.hash=\''+back+'\'">← 뒤로</button>':'')+'<h1>'+t+'</h1>'}
-​function list(items){
-var h='<div class="chips">'+['전체'].concat(A).map(function(a){return '<button class="chip'+(a==area?' on':'')+'" onclick="area=\''+a+'\';render()">'+a+'</button>'}).join('')+'</div>';
-var n=0;
-A.forEach(function(a){
-if(area!='전체'&&area!=a)return;
-var it=items.filter(function(i){return i[1]==a});
-if(!it.length)return;
-n+=it.length;
-h+='<h2>'+a+'</h2>'+it.map(function(i){
-var rateHtml = i[4] ? '<span class="rating">★ '+esc(i[4])+(i[5]?'<small>('+esc(i[5])+')</small>':'')+'</span>' : '';
-return '<div class="item"><div class="item-head"><b>'+esc(i[0])+'</b>'+rateHtml+'</div><p>'+esc(i[2])+'</p><div class="item-actions"><a href="'+map(i[3])+'" target="_blank" rel="noopener">구글맵</a></div></div>'
-}).join('');
-});
-if(!n)h+='<p class="lead">이 지역에는 등록된 곳이 없어요.</p>';
-return h;
+
+function list(items){
+ var h='<div class="chips">'+['전체'].concat(A).map(function(a){return '<button class="chip'+(a==area?' on':'')+'" onclick="area=\''+a+'\';render()">'+a+'</button>'}).join('')+'</div>';
+ var n=0;
+ A.forEach(function(a){
+  if(area!='전체'&&area!=a)return;
+  var it=items.filter(function(i){return i[1]==a});
+  if(!it.length)return;
+  n+=it.length;
+  h+='<h2>'+a+'</h2>'+it.map(function(i){
+   var rateHtml = i[4] ? '<span class="rating">★ '+esc(i[4])+(i[5]?'<small>('+esc(i[5])+')</small>':'')+'</span>' : '';
+   return '<div class="item"><div class="item-head"><b>'+esc(i[0])+'</b>'+rateHtml+'</div><p>'+esc(i[2])+'</p><div class="item-actions"><a href="'+map(i[3])+'" target="_blank" rel="noopener">구글맵</a></div></div>'
+  }).join('');
+ });
+ if(!n)h+='<p class="lead">이 지역에는 등록된 곳이 없어요.</p>';
+ return h;
 }
-​function render(){
-var p=(location.hash||'#/').slice(2).split('/'),h='',c=D[p[0]];
-if(!c){
-h=header('도쿄 긴자·신주쿠·시부야 가이드')+'<p class="lead">성인 여성 여행을 위한 식당 가이드예요</p><div class="grid">'+Object.keys(D).map(function(k){return '<button class="tile big" onclick="area=\'전체\';location.hash=\'#/'+k+'\'"><span class="e">'+D[k].e+'</span><span><b>'+D[k].t+'</b><small>'+D[k].d+'</small></span></button>'}).join('')+'</div>';
-}else if(c.subs&&!p[1]){
-h=header(c.t,'#/')+'<div class="grid two">'+Object.keys(c.subs).map(function(k){var s=c.subs[k];return '<button class="tile" onclick="area=\'전체\';location.hash=\'#/'+p[0]+'/'+k+'\'"><span class="e">'+s.e+'</span><b>'+s.t+'</b><small>'+s.items.length+'곳</small></button>'}).join('')+'</div>';
-}else if(c.subs&&c.subs[p[1]]){
-h=header(c.subs[p[1]].t,'#/'+p[0])+list(c.subs[p[1]].items);
-}
-h+='<footer>영업시간·휴무는 방문 전 구글맵에서 확인하세요.</footer>';
-app.innerHTML=h;window.scrollTo(0,0);
+
+function render(){
+ var p=(location.hash||'#/').slice(2).split('/'),h='',c=D[p[0]];
+ if(!c){
+  h=header('도쿄 긴자·신주쿠·시부야 가이드')+'<p class="lead">성인 여성 여행을 위한 식당 가이드예요</p><div class="grid">'+Object.keys(D).map(function(k){return '<button class="tile big" onclick="area=\'전체\';location.hash=\'#/'+k+'\'"><span class="e">'+D[k].e+'</span><span><b>'+D[k].t+'</b><small>'+D[k].d+'</small></span></button>'}).join('')+'</div>';
+ }else if(c.subs&&!p[1]){
+  h=header(c.t,'#/')+'<div class="grid two">'+Object.keys(c.subs).map(function(k){var s=c.subs[k];return '<button class="tile" onclick="area=\'전체\';location.hash=\'#/'+p[0]+'/'+k+'\'"><span class="e">'+s.e+'</span><b>'+s.t+'</b><small>'+s.items.length+'곳</small></button>'}).join('')+'</div>';
+ }else if(c.subs&&c.subs[p[1]]){
+  h=header(c.subs[p[1]].t,'#/'+p[0])+list(c.subs[p[1]].items);
+ }
+ h+='<footer>영업시간·휴무는 방문 전 구글맵에서 확인하세요.</footer>';
+ app.innerHTML=h;window.scrollTo(0,0);
 }
 window.addEventListener('hashchange',function(){area='전체';render()});
 render();
